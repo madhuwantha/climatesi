@@ -15,7 +15,7 @@ export default function handler(req, res) {
     const body = {
         "projects" : ["project 1", "project 2", "project 3", "project 4", "project 5", "project 6", "project 7"],
         "ers" : [120, 100, 40, 50, 60, 80, 200],
-        "macs" : [-50, -20, -10, 10, 15, 25, 30]
+        "macs" : [40, -20, -10, 10, 15, 25, 30]
     }
 
     const options = {

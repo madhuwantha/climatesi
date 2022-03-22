@@ -30,6 +30,8 @@ def plot_mac(data: dict):
                        "ER (CO2e)": ers,
                        "MAC ($/CO2e)": macs,
                        })
+    df.sort_values(by=['MAC ($/CO2e)'], inplace=True)
+    df.reset_index()
     df.set_index("Projects", inplace=True)
     df["Cumulative ER"] = df["ER (CO2e)"].cumsum()
 
@@ -38,7 +40,7 @@ def plot_mac(data: dict):
     for index in df.index:
         i = df.index.get_loc(index)
 
-        if index == projects[0]:  # First index
+        if i == 0:  # First index
             df.loc[index, "xpos"] = df.loc[index, "ER (CO2e)"] / 2
 
         else:
@@ -47,6 +49,8 @@ def plot_mac(data: dict):
             df.loc[index, "xpos"] = a + b
 
     df["xpos_labels"] = df["xpos"] - df["ER (CO2e)"] / 2
+
+    print(df)
 
     plt.figure(figsize=(14, 8))
     plt.rcParams["font.size"] = 14
