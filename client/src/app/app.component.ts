@@ -11,6 +11,8 @@ export class AppComponent implements OnInit {
   title = 'client';
 
   public base64 = "";
+  public base641 = "";
+  public base642 = "";
 
   constructor(
     public http: HttpClient,
@@ -20,6 +22,16 @@ export class AppComponent implements OnInit {
     this.http.get<any>('http://127.0.0.1:3000/api/mac')
     .subscribe(r => {
       this.base64 = 'data:image/jpg;base64,'+r.data;
+    })
+
+    this.http.get<any>('http://127.0.0.1:3000/api/mac')
+    .subscribe(r => {
+      this.base641 = 'data:image/jpg;base64,'+r.data;
+    })
+
+    this.http.get<any>('http://127.0.0.1:3000/api/mac')
+    .subscribe(r => {
+      this.base642 = 'data:image/jpg;base64,'+r.data;
     })
   }
 

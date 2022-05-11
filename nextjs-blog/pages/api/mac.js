@@ -26,7 +26,7 @@ export default function handler(req, res) {
 
     const options = {
         method: 'POST',
-        url: `http://localhost:8000/image`,
+        url: `http://localhost:8000/mac/`,
         json: true,
         body: body
     };
@@ -38,37 +38,9 @@ export default function handler(req, res) {
             const _body = body;
 
             if (_body.error) {
-                // res.send(_body.error);
+                res.send(_body.error);
             } else if (_body) {
-                // return res.send({data: _body});
-            }
-        }
-    });
-
-    request(options, (error, response, body) => {
-        if (error) {
-            res.send(error);
-        } else {
-            const _body = body;
-
-            if (_body.error) {
-                // res.send(_body.error);
-            } else if (_body) {
-                // return res.send({data: _body});
-            }
-        }
-    });
-
-    request(options, (error, response, body) => {
-        if (error) {
-            res.send(error);
-        } else {
-            const _body = body;
-
-            if (_body.error) {
-                // res.send(_body.error);
-            } else if (_body) {
-                // return res.send({data: _body});
+                return res.send({data: _body});
             }
         }
     });
